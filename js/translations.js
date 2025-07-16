@@ -81,7 +81,25 @@ function changeLanguage(lang) {
   document.querySelector(`.language-selector button[onclick="changeLanguage('${lang}')"]`).classList.add('active');
 }
 
-// Set English as default language
+// Set language based on URL hash or default to English
 document.addEventListener('DOMContentLoaded', function() {
-  changeLanguage('en');
+  // Check for language parameter in URL hash
+  const hash = window.location.hash;
+  const langMatch = hash.match(/#lang=([a-z]{2})/);
+  
+  if (langMatch && ['en', 'fr', 'pt'].includes(langMatch[1])) {
+    // Valid language found in URL
+    changeLanguage(langMatch[1]);
+  } else {
+    // Default to English
+    changeLanguage('en');
+  }
+  
+  // Update URL when language changes
+  document.querySelectorAll('.language-selector .btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const lang = this.getAttribute('onclick').match(/changeLanguage\('([a-z]{2})'\)/)[1];
+      window.location.hash = `lang=${lang}`;
+    });
+  });
 });
