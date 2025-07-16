@@ -4,55 +4,40 @@ const translations = {
     'title': 'Dr. Karen Prediger',
     'directPayment': 'Immediate Direct Payment available',
     'profession': 'Dentist in Schifflange',
-    'doctena': 'Doctena',
     'directions': 'Directions',
     'call': 'Call',
     'contact': 'Contact',
     'languages': 'Languages: PT, EN, FR',
-    'languageSelector': 'Language / Langue / Idioma',
     'about': 'About',
     'aboutText': 'My priority is to offer my patients quality care based on listening, trust, and personalized treatment. I am committed to constantly updating my knowledge and skills to ensure effective treatments tailored to each need, while respecting the well-being and comfort of my patients.',
     'aboutText2': 'I am a dentist graduated from the Federal University of Rio Grande do Sul (Brazil), with a Master\'s degree in Dentistry from Fernando Pessoa University (Portugal). I completed advanced training in endodontics in Madrid and am currently pursuing a specialization in dental prosthetics. My approach aims to combine technical expertise and humanity to ensure the best quality of care for my patients.',
-    'onlineBooking': 'Online Booking',
-    'popularTimes': 'Popular times',
-    'currentlyBusy': 'Currently: Moderately busy',
-    'busierThanUsual': 'Live data: Busier than usual'
+    'onlineBooking': 'Online Booking'
   },
   'fr': {
     'title': 'Dr. Karen Prediger',
     'directPayment': 'Paiement direct immédiat disponible',
     'profession': 'Dentiste à Schifflange',
-    'doctena': 'Doctena',
     'directions': 'Itinéraire',
     'call': 'Appeler',
     'contact': 'Contact',
     'languages': 'Langues: PT, EN, FR',
-    'languageSelector': 'Language / Langue / Idioma',
     'about': 'À propos',
     'aboutText': 'Ma priorité est d\'offrir à mes patients un accompagnement de qualité, basé sur l\'écoute, la confiance et des soins personnalisés. Je m\'engage à mettre à jour constamment mes connaissances et mes compétences afin de garantir des traitements efficaces et adaptés à chaque besoin, dans le respect du bien-être et du confort de mes patients.',
     'aboutText2': 'Je suis dentiste diplômée de l\'Université Fédérale du Rio Grande do Sul (Brésil), avec un Master en Odontologie de l\'Université Fernando Pessoa (Portugal). J\'ai complété un perfectionnement en endodontie à Madrid et je poursuis actuellement une spécialisation en prothèse dentaire. Mon approche vise à allier expertise technique et humanité pour assurer la meilleure qualité de soins à mes patients.',
-    'onlineBooking': 'Réservation en ligne',
-    'popularTimes': 'Heures d\'affluence',
-    'currentlyBusy': 'Actuellement: Moyennement occupé',
-    'busierThanUsual': 'Données en direct: Plus occupé que d\'habitude'
+    'onlineBooking': 'Réservation en ligne'
   },
   'pt': {
     'title': 'Dra. Karen Prediger',
     'directPayment': 'Pagamento direto imediato disponível',
     'profession': 'Dentista em Schifflange',
-    'doctena': 'Doctena',
     'directions': 'Direções',
     'call': 'Ligar',
     'contact': 'Contato',
     'languages': 'Idiomas: PT, EN, FR',
-    'languageSelector': 'Language / Langue / Idioma',
     'about': 'Sobre',
     'aboutText': 'Minha prioridade é oferecer aos meus pacientes um atendimento de qualidade, baseado na escuta, confiança e cuidados personalizados. Comprometo-me a atualizar constantemente meus conhecimentos e habilidades para garantir tratamentos eficazes e adaptados a cada necessidade, respeitando o bem-estar e o conforto dos meus pacientes.',
     'aboutText2': 'Sou dentista formada pela Universidade Federal do Rio Grande do Sul (Brasil), com Mestrado em Odontologia pela Universidade Fernando Pessoa (Portugal). Completei um aperfeiçoamento em endodontia em Madrid e atualmente estou cursando uma especialização em prótese dentária. Minha abordagem visa combinar expertise técnica e humanidade para garantir a melhor qualidade de atendimento aos meus pacientes.',
-    'onlineBooking': 'Agendamento Online',
-    'popularTimes': 'Horários populares',
-    'currentlyBusy': 'Atualmente: Moderadamente ocupado',
-    'busierThanUsual': 'Dados em tempo real: Mais ocupado que o normal'
+    'onlineBooking': 'Agendamento Online'
   }
 };
 
@@ -74,6 +59,10 @@ function changeLanguage(lang) {
     }
   }
 
+  // Show/hide language-specific elements
+  document.querySelectorAll(`html [lang="${lang}"]`).forEach(el => el.classList.remove('d-none'));
+  document.querySelectorAll(`html [lang]:not([lang="${lang}"])`).forEach(el => el.classList.add('d-none'));
+
   // Highlight the selected language button
   document.querySelectorAll('.language-selector .btn').forEach(btn => {
     btn.classList.remove('active');
@@ -86,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check for language parameter in URL hash
   const hash = window.location.hash;
   const langMatch = hash.match(/#lang=([a-z]{2})/);
-  
+
   if (langMatch && ['en', 'fr', 'pt'].includes(langMatch[1])) {
     // Valid language found in URL
     changeLanguage(langMatch[1]);
@@ -94,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Default to English
     changeLanguage('en');
   }
-  
+
   // Update URL when language changes
   document.querySelectorAll('.language-selector .btn').forEach(btn => {
     btn.addEventListener('click', function() {
