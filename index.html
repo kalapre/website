@@ -1,22 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta name="description" content="Webpage description goes here" />
   <meta charset="utf-8">
-  <title>Change_me</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="">
+  <title>Dr. Karen Prediger - Dentist in Schifflange | Direct Payment Available</title>
+  <meta name="description" content="Dr. Karen Prediger offers quality dental care in Schifflange, Luxembourg. Book online, immediate direct payment available. Languages: PT, EN, FR.">
+  <meta name="keywords" content="dentist, Schifflange, Luxembourg, Karen Prediger, dental care, direct payment, online booking">
+  <meta name="author" content="Dr. Karen Prediger">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karen-prediger.lu/">
+  <meta property="og:title" content="Dr. Karen Prediger - Dentist in Schifflange">
+  <meta property="og:description" content="Quality dental care in Schifflange, Luxembourg. Book online, immediate direct payment available.">
+  <meta property="og:image" content="https://res.cloudinary.com/doctena/image/upload/f_auto,h_600,w_600,z_0.7,c_limit/v1696262633/3439ff28-db48-46a7-bcd1-c9b463a3d465/92ae1eb8-faea-41d2-aa04-4cd7d8800100.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://karen-prediger.lu/">
+  <meta property="twitter:title" content="Dr. Karen Prediger - Dentist in Schifflange">
+  <meta property="twitter:description" content="Quality dental care in Schifflange, Luxembourg. Book online, immediate direct payment available.">
+  <meta property="twitter:image" content="https://res.cloudinary.com/doctena/image/upload/f_auto,h_600,w_600,z_0.7,c_limit/v1696262633/3439ff28-db48-46a7-bcd1-c9b463a3d465/92ae1eb8-faea-41d2-aa04-4cd7d8800100.jpg">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles -->
   <link rel="stylesheet" href="css/style.css">
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Flag Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css">
+
+  <!-- SEO: Canonical URL -->
+  <link rel="canonical" href="https://karen-prediger.lu/">
+
+  <!-- Language alternates -->
+  <link rel="alternate" hreflang="en" href="https://karen-prediger.lu/?lang=en">
+  <link rel="alternate" hreflang="fr" href="https://karen-prediger.lu/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://karen-prediger.lu/?lang=pt">
+  <link rel="alternate" hreflang="x-default" href="https://karen-prediger.lu/">
 </head>
 
 <body>
-  
-<h1>Hello World!</h1>
-  
-<script>
-</script>
 
+
+  <!-- Language Selector -->
+  <header class="container-fluid bg-light py-2 border-bottom mb-3">
+    <div class="container d-flex justify-content-end">
+      <div class="language-selector">
+        <span class="me-2 text-secondary">Language:</span>
+        <div class="btn-group">
+          <button class="btn btn-sm btn-outline-secondary" onclick="changeLanguage('en')">
+            <span class="fi fi-us"></span> EN
+          </button>
+          <button class="btn btn-sm btn-outline-secondary" onclick="changeLanguage('fr')">
+            <span class="fi fi-lu me-1"></span><span class="fi fi-fr"></span> FR
+          </button>
+          <button class="btn btn-sm btn-outline-secondary" onclick="changeLanguage('pt')">
+            <span class="fi fi-pt me-1"></span><span class="fi fi-br"></span> PT
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mt-3" itemscope itemtype="https://schema.org/Dentist">
+    <!-- Business Header -->
+    <div class="row mb-4" style="min-height: 200px;">
+      <div class="col-md-2 col-sm-3 mb-3 mb-sm-0 d-flex align-items-stretch">
+        <img src="https://res.cloudinary.com/doctena/image/upload/f_auto,h_600,w_600,z_0.7,c_limit/v1696262633/3439ff28-db48-46a7-bcd1-c9b463a3d465/92ae1eb8-faea-41d2-aa04-4cd7d8800100.jpg" alt="Dr. Karen Prediger - Dentist in Schifflange, Luxembourg" class="img-fluid rounded" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" itemprop="image">
+      </div>
+      <div class="col-md-6 col-sm-9 d-flex flex-column justify-content-between">
+        <div>
+          <div class="d-flex align-items-center mb-2">
+            <h1 id="title" class="mb-0 me-2">Dr. Karen Prediger</h1>
+            <span class="d-inline-block px-2 py-1 rounded" style="background-color: #E1AD01; color: white; font-weight: bold;">127 <i class="fas fa-heart"></i></span>
+          </div>
+          <p id="profession" class="text-secondary mb-1">Change your language:</p>
+        </div>
+        <div class="mt-4 mt-md-auto">
+          <p class="mb-1"><i class="fas fa-check-circle text-success me-2"></i><span id="directPayment">Immediate Direct Payment available</span></p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="https://karen-prediger.lu" class="btn btn-primary"><i class="fas fa-calendar-check me-2"></i><span id="doctena">Doctena</span></a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=21+Rue+de+H%C3%A9dange+3840+Schifflange+Luxembourg" target="_blank" class="btn btn-outline-dark"><i class="fas fa-directions me-2"></i><span id="directions">Directions</span></a>
+            <a href="tel:+35253186304" class="btn btn-outline-dark"><i class="fas fa-phone me-2"></i><span id="call">Call</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-3 mt-md-0">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 id="contact" class="card-title">Contact</h5>
+            <p class="card-text"><i class="fas fa-phone me-2"></i><a href="tel:+35253186304">+352 53 18 66 304</a></p>
+            <p class="card-text"><i class="fas fa-globe me-2"></i><a href="https://karen-prediger.lu">doctena.lu</a></p>
+            <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i><a href="https://www.google.com/maps/dir/?api=1&destination=21+Rue+de+H%C3%A9dange+3840+Schifflange+Luxembourg" target="_blank">21 Rue de Hédange, 3840 Schifflange</a></p>
+            <p class="card-text"><i class="fas fa-language me-2"></i><span id="languages">Languages: PT, EN, FR</span></p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <!-- About Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <h3 id="about">About</h3>
+        <p id="aboutText">Ma priorité est d'offrir à mes patients un accompagnement de qualité, basé sur l'écoute, la confiance et des soins personnalisés. Je m'engage à mettre à jour constamment mes connaissances et mes compétences afin de garantir des traitements efficaces et adaptés à chaque besoin, dans le respect du bien-être et du confort de mes patients.</p>
+        <p id="aboutText2">Je suis dentiste diplômée de l'Université Fédérale du Rio Grande do Sul (Brésil), avec un Master en Odontologie de l'Université Fernando Pessoa (Portugal). J'ai complété un perfectionnement en endodontie à Madrid et je poursuis actuellement une spécialisation en prothèse dentaire. Mon approche vise à allier expertise technique et humanité pour assurer la meilleure qualité de soins à mes patients.</p>
+
+        <h4 id="onlineBooking" class="mt-4">Online Booking</h4>
+        <div class="ratio ratio-1x1">
+          <iframe src="https://booking-app.doctena.com/fr/doctor/08b0232b-4100-452f-94f4-8f174f8cb620" title="Dr. Karen Prediger Online Booking" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/translations.js"></script>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Dr. Karen Prediger",
+    "image": "https://res.cloudinary.com/doctena/image/upload/f_auto,h_600,w_600,z_0.7,c_limit/v1696262633/3439ff28-db48-46a7-bcd1-c9b463a3d465/92ae1eb8-faea-41d2-aa04-4cd7d8800100.jpg",
+    "@id": "https://karen-prediger.lu",
+    "url": "https://karen-prediger.lu",
+    "telephone": "+35253186304",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "21 Rue de Hédange",
+      "addressLocality": "Schifflange",
+      "postalCode": "3840",
+      "addressCountry": "LU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.5016,
+      "longitude": 6.0092
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:30",
+        "closes": "19:00"
+      }
+    ],
+    "paymentAccepted": "Cash, Credit Card, Direct Payment",
+    "availableLanguage": ["Portuguese", "English", "French"]
+  }
+  </script>
 </body>
+
 </html>
