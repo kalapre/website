@@ -70,25 +70,40 @@ function changeLanguage(lang) {
   document.querySelector(`.language-selector button[onclick="changeLanguage('${lang}')"]`).classList.add('active');
 }
 
-// Set language based on URL hash or default to English
+// Set language based on URL hash, query string, or default to English
 document.addEventListener('DOMContentLoaded', function() {
-  // Check for language parameter in URL hash
+  // Check for language parameter in URL hash first
   const hash = window.location.hash;
-  const langMatch = hash.match(/#lang=([a-z]{2})/);
-
-  if (langMatch && ['en', 'fr', 'pt'].includes(langMatch[1])) {
-    // Valid language found in URL
-    changeLanguage(langMatch[1]);
-  } else {
-    // Default to English
-    changeLanguage('en');
+  const hashLangMatch = hash.match(/#lang=([a-z]{2})/);
+  
+  // Check for language parameter in query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryLang = urlParams.get('lang');
+  
+  // Determine which language to use
+  let selectedLang = 'en'; // Default language
+  
+  if (hashLangMatch && ['en', 'fr', 'pt'].includes(hashLangMatch[1])) {
+    // Valid language found in URL hash
+    selectedLang = hashLangMatch[1];
+  } else if (queryLang && ['en', 'fr', 'pt'].includes(queryLang)) {
+    // Valid language found in query string
+    selectedLang = queryLang;
   }
+  
+  // Apply the selected language
+  changeLanguage(selectedLang);
 
   // Update URL when language changes
   document.querySelectorAll('.language-selector .btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const lang = this.getAttribute('onclick').match(/changeLanguage\('([a-z]{2})'\)/)[1];
-      window.location.hash = `lang=${lang}`;
+      
+      // Update both query string and hash without page reload
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      url.hash = `lang=${lang}`;
+      window.history.replaceState({}, '', url);
     });
   });
 });
